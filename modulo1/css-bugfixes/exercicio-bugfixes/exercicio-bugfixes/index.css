@@ -9,6 +9,12 @@
     padding: 0;
 }
 
+.container-do-search img{
+
+    width: 16px ;
+    height: 16px ;
+}
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -34,7 +40,7 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    background: rgb(255, 255, 255);
 }
 
 .botao-amarelo {
