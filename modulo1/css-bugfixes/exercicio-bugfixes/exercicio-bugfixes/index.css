@@ -23,8 +23,11 @@ h2 {
 }
 
 input {
-    height: 20px;
-    width: 500px;
+        border-top-style: hidden;
+        border-right-style:hidden;
+        border-left-style: hidden;
+        border-bottom-width: 3px;
+        width: 500px;
 }
 
 button:focus {
@@ -100,8 +103,8 @@ div img {
   *
   **/
 img {
-width: 85px; ;
-height: 85px ;
+width: 45px; ;
+height: 45px ;
 
 }
 
@@ -125,7 +128,7 @@ td button {
 }
 td button:hover{
     color: rgb(255, 255, 255);
-    background-color: #d6b629;
+    background-color: #d8b517;
 }
 
 .container-do-search {
