@@ -93,6 +93,11 @@ div img {
   *  ESTILOS COMPRAR 
   *
   **/
+img {
+width: 85px; ;
+height: 85px ;
+
+}
 
 div:nth-child(2),
 div:last-child {
