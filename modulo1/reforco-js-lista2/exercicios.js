@@ -119,12 +119,42 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
+
+    let menor = Infinity;
+    let maior = -Infinity;
+    let segundoMenor = Infinity;
+    let segundoMaior = -Infinity;
+    let array = [];
   
+    for (let index of array) {
+      if (i < menor) {
+        menor = i;
+      }
+      if (i > maior) {
+        maior = i;
+      }
+    }
+  
+    for (let index of array) {
+      if (i < segundoMenor && i !== menor) {
+        segundoMenor = i;
+      }
+      if (i > segundoMaior && i !== maior) {
+        segundoMaior = i;
+      }
+    }
+    novoArray.push(segundoMaior);
+    novoArray.push(segundoMenor);
+  
+    return array;   
+
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+
+       
+
 }
 
 // EXERCÍCIO 12
