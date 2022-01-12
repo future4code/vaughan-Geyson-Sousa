@@ -4,13 +4,43 @@ import CardGrande from './components/CardGrande/CardGrande';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import GeysonImagem from './imagem/Geyson.jpg';
+import styled from 'styled-components';
+
+
+const StyleApp = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+
+`;
+
+const  ContainerStyle = styled.div`
+  width: 52vw;
+  margin: 10px 0;
+
+`;
+
+const H2Style = styled.h2`
+   display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+`;
+
+const H3Style = styled.h3`
+  text-align: center;
+  margin-bottom: 20px;
+
+`;
 
 
 function App() {
   return (
-    <div className="App">
-      <div className="page-section-container">
-        <h2>Dados pessoais</h2>
+    <StyleApp>
+      <ContainerStyle>
+        <H2Style>Dados pessoais</H2Style>
         <CardGrande 
           imagem= {GeysonImagem} 
           nome="Geyson Mesquita" 
@@ -24,9 +54,9 @@ function App() {
           imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
           texto="Ver mais"
         />
-      </div>
+      </ContainerStyle>
     
-       <div className="page-selection-container">
+       <ContainerStyle>
        <CardPequeno  
         dados="Email:" 
         informacao="Geysonlabenu@gmail.com"
@@ -38,10 +68,10 @@ function App() {
         />  
 
 
-       </div>
+       </ContainerStyle>
 
-      <div className="page-section-container">
-        <h2>Experiências profissionais</h2>
+      <ContainerStyle>
+        <H2Style>Experiências profissionais</H2Style>
         <CardGrande 
           imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
           nome="Labenu" 
@@ -53,10 +83,10 @@ function App() {
           nome="NASA" 
           descricao="Apontando defeitos." 
         />
-      </div>
+      </ContainerStyle>
 
-      <div className="page-section-container">
-        <h2>Minhas redes sociais</h2>
+      <ContainerStyle>
+        <H2Style>Minhas redes sociais</H2Style>
         <ImagemButton 
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook" 
@@ -66,8 +96,8 @@ function App() {
           imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" 
           texto="Twitter" 
         />        
-      </div>
-    </div>
+      </ContainerStyle>
+    </StyleApp>
   );
 }
 
