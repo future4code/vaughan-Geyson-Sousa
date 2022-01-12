@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
 import CardPequeno from './components/CardPequeno/CardPequeno';
 import ImagemButton from './components/ImagemButton/ImagemButton';
