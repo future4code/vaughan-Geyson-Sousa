@@ -1,0 +1,29 @@
+.Pai {
+  font-family: sans-serif;
+  text-align: center;
+  
+}
+.filho{
+  color: goldenrod;
+}
+
+.botao {
+ margin: 5px;
+ font-size: 10px;
+ width: 90px;
+ height:25px;
+ 
+ 
+}
+.botao1{
+  margin:10px ;
+  height: 20px;
+}
+
+.enviar{
+  background-color:wheat;
+  font-size: 10px;
+  height: 20px;
+  margin:0px
+
+}
