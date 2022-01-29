@@ -1,18 +1,18 @@
 import React from "react";
 import axios from "axios";
-import styled from "styled-components"
+// import styled from "styled-components";
 
 
-const cardUsuario = styled.div`
-    border: 1px solid black;
-    background-color: lavender;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-`
+// const CardUsuario = styled.div`
+//     border: 1px solid black;
+//     background-color: lavender;
+//     border-radius: 8px;
+//     padding: 10px;
+//     margin: 10px;
+//     width: 200px;
+//     display: flex;
+//     justify-content: space-between;
+// `
 
 class Pegar extends React.Component {
     state = {
@@ -25,15 +25,12 @@ class Pegar extends React.Component {
         this.pegarPlaylist()
     }
 
-    adicionarItem = () => {
-        const novaLista = [...this.state.playLista, this.state.props.criar]
-        this.setState({ playLista: novaLista })
-    }
+    
 
 
     pegarPlaylist = (() => {
         const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
-        axios.get(url, { headers: { Authorization: "geyson-sousa-vaughan" } })
+        axios.get(url, { headers: { Authorization: "geyson-sousa-vaughan" }})
             .then((response) => {
                 this.setState({ playLista: response.data.result.list });
                 
@@ -45,17 +42,30 @@ class Pegar extends React.Component {
             })
     })
 
+    deleteList = ((id)=>{
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`  
+        const head=(url,{headers:{Authorization:"geyson-sousa-vaughan"}})
+        axios.delete(head,url)
+          .then((response) => {
+              alert("playList deletada com sucesso!!")
+              this.pegarPlaylist()
+             })
+              .catch((error)=>{
+                  alert("Erro ao deletar a PlayList")
+              })
+    })
+        
+
     render() {
         const lista = this.state.playLista.map((play) => {
-            return <cardUsuario key={play.id}>{play.name}</cardUsuario>
+            return <div key={play.id}>{play.name}
+            <button onClick={()=>this.deleteList(play.id)}>X</button>
+            </div>
 
         });
         return (
             <div>
-                <ul>
-                    {lista}
-                </ul>
-
+                <ul>{lista}</ul>
             </div>
         )
     }
