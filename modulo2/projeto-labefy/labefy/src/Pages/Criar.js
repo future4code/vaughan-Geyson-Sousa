@@ -43,8 +43,6 @@ inputControl = (ev)=>{
 
 render(){
  
-
-
     return(
         <div>
           <h1>Labefy</h1>
@@ -60,7 +58,5 @@ render(){
     )  
  }
 }
-
-
 
 export default Criar;

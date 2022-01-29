@@ -1,18 +1,24 @@
 import React from "react";
 import axios from "axios";
-// import styled from "styled-components";
+import styled from "styled-components";
 
 
-// const CardUsuario = styled.div`
-//     border: 1px solid black;
-//     background-color: lavender;
-//     border-radius: 8px;
-//     padding: 10px;
-//     margin: 10px;
-//     width: 200px;
-//     display: flex;
-//     justify-content: space-between;
-// `
+
+const List  = styled.div`
+    border: 1px solid black;
+     background-color: black; 
+    border-radius: 5px;
+    padding: 10px;
+     margin: 10px;
+     width: 500px;
+     display: flex;
+    justify-content: space-around;
+    color: floralwhite;
+    box-shadow: 10px 0px 30px ;
+    align-items: center;
+
+`
+
 
 class Pegar extends React.Component {
     state = {
@@ -23,6 +29,7 @@ class Pegar extends React.Component {
 
     componentDidMount() {
         this.pegarPlaylist()
+        this.verDetalhes()
     }
 
     
@@ -54,7 +61,6 @@ class Pegar extends React.Component {
                   alert("Erro ao deletar a PlayList")
               })
     })
-        
 
     render() {
         const lista = this.state.playLista.map((play) => {
@@ -64,9 +70,10 @@ class Pegar extends React.Component {
 
         });
         return (
-            <div>
+            <List>
                 <ul>{lista}</ul>
-            </div>
+                
+            </List>
         )
     }
 }
