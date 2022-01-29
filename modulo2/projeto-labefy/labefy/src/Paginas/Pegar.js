@@ -44,8 +44,8 @@ class Pegar extends React.Component {
 
     deleteList = ((id)=>{
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`  
-        const head=(url,{headers:{Authorization:"geyson-sousa-vaughan"}})
-        axios.delete(head,url)
+
+        axios.delete(url, {headers:{Authorization:"geyson-sousa-vaughan"}})
           .then((response) => {
               alert("playList deletada com sucesso!!")
               this.pegarPlaylist()
