@@ -1,39 +1,38 @@
 import React from "react";
-import Criar from "./Pages/Criar";
-import Pegar from "./Pages/Pegar";
-import Outro from "./Pages/Outro"
-
-
-
+import TelaPlayList from "./Pages/TelaPlayList";
+import TelaDetails from "./Pages/TelaDetails"
 
 class App extends React.Component {
 
   state={
-    atual:"List",
-    info:""
+    telaAtual:"list",
+    clickVer:""
+  } 
+
+  irParaTelaDetails=(id)=>{
+    this.setState({telaAtual:"details",clickVer:id})
   }
 
-
-  detailPlay=(url)=>{
-    this.setState({atual:"Details,info:url"})
-
-
-  }
-  escolhaPagina =()=>{
-    switch(this.state.atual){
+  escolhaTela =()=>{
+    switch(this.state.telaAtual){
       case "list":
-        return<Criar detailPlay={this.detailPlay}/>
-      case "Details":
-        return<Pegar url={this.state.info}/>
+        return<TelaPlayList irParaTelaDetails={this.irParaTelaDetails}/>
+      case "details":
+        return<TelaDetails id={this.state.clickVer}/>
       default:
-        return <Outro/>
+        return <TelaPlayList/>
     }
   }
+
+  mudaTela =(nomeTela)=>{
+    this.setState({telaAtual:nomeTela});
+    
+  }
+
   render() {
     return (
       <div>
-        <Criar/>
-        <Pegar/>
+       {this.escolhaTela()}
       </div>
     );
   }
