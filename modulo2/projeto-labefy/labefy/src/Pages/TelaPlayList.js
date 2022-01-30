@@ -12,20 +12,83 @@ const List  = styled.div`
      display: flex;
     justify-content: space-between;
     color: floralwhite;
-    box-shadow: 10px 0px 60px ;
+    box-shadow: 10px 0px 10px black ;
     align-items: center;
 
     &:hover {
-        cursor: pointer;
-        background-color: orange;
+        background-color:  #c94d00;
         color: black;
     }
+`
+const Pai = styled.div`
+ display: flex;
+ flex-direction:column;
+ align-items: center;
+ margin:30px;
+ color:white
+`
+const Botao = styled.div`
+  color: white;
+  border-radius: 10px;
+  border: solid 1px white;
+  height: 10px;
+  width: 60px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+        cursor: pointer;
+        border-color: black;
+        background-color: black;
+        color: white;
+    }
+`
+const Delete = styled.div`
+  color: white;
+  border-radius: 10px;
+  border: solid 1px white;
+  height: 7px;
+  width: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+        cursor: pointer;
+        border-color: black;
+        background-color: black;
+        color: white;
+       }
 
 `
+const Adiciona = styled.div`
+  padding: 50px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+
+`
+const Input = styled.input`
+    color: white;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color: transparent;
+    height: 30px;
+    border: 1px solid white;
+    width: 300px;
+&:hover {
+    color: white;
+}
+&:focus {
+    outline: none;
+}
+`
+
 class TelaPlayList extends React.Component {
   state = {
     inputTexto: "",
-    lista: []
+    lista: [],
 
   };
 
@@ -39,36 +102,27 @@ class TelaPlayList extends React.Component {
   }
 
   criarPlayList = () => {
-    const axiosConfig = {
-      headers: {
-        Authorization: "geyson-sousa-vaughan"
-      }
-    };
-
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
     const body = {
       name: this.state.inputTexto,
+    }
 
-    };
+    axios.post(url, body, {headers: { Authorization: "geyson-sousa-vaughan" }})
 
-    axios.post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
-      body,
-      axiosConfig
-    )
-      .then(() => {
+      .then((response) => {
         alert(`PlayList ${this.state.inputTexto} criado com sucesso!`);
         this.setState({ inputTexto: "", });
         this.pegarPlaylist()
       })
       .catch(error => {
         alert("Erro ao criar PlayList");
-
-      });
-  };
+      })
+  }
   
   pegarPlaylist = (() => {
     const url = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
     axios.get(url, { headers: { Authorization: "geyson-sousa-vaughan" } })
+
       .then((response) => {
         this.setState({ lista: response.data.result.list });
       })
@@ -94,25 +148,28 @@ class TelaPlayList extends React.Component {
     const listaPlayList = this.state.lista.map((play) => {
       return <List key={play.id}>
       <div >
-      <button onClick={()=>{this.props.irParaTelaDetails(play.id)}}>Ver Detalhes</button>
+      <Botao onClick={()=>{this.props.irParaTelaDetails(play.id)}}>Ver</Botao>
       </div>
       {play.name}
-      <button onClick={()=>this.deleteList(play.id)}>X</button>
+      <Delete onClick={()=>this.deleteList(play.id)}>X</Delete>
       </List>
 
   });
 
     return (
-      <div>
-        <h1>Labefy</h1>
-        <label>Criar Playlist</label>
-        <input
+      <Pai>
+      
+        <h2>PlayLists</h2>
+        <Adiciona>
+        <Input
+          placeholder="Nome da Playlist"
           value={this.state.inputTexto}
           onChange={this.inputControl}>
-        </input>
-        <button onClick={this.criarPlayList}>Criar</button>
+        </Input>
+        <Botao onClick={this.criarPlayList}>Criar</Botao>
+        </Adiciona>
         {listaPlayList}
-      </div>
+      </Pai>
     )
   }
 }
