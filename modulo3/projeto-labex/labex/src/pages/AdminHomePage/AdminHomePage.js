@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import styled from "styled-components";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-export default function AdminHomePage() {
+import { useNavigate } from "react-router-dom";
 
 const CardAdmin =styled(CardContent)`
 display: flex;
@@ -15,6 +15,18 @@ gap: 1rem;
 background-color: #514442;
 color:yellow;
 `
+
+export default function AdminHomePage() {
+    const  history = useNavigate()
+    const  goToAdmin =()=>{
+      history('/admin/trips/list')
+     }
+     const goToBackHome=()=>{
+        history('/')
+      }
+const goToCreate =()=>{
+    history('/admin/trips/create')
+}
 
     const bull = (
         <Box
@@ -46,8 +58,12 @@ color:yellow;
             <div>
                 <Button>
                     <Stack spacing={5} direction="row" >
-                        <Button variant="contained">Voltar</Button>
-                        <Button variant="contained">Criar Viagem</Button>
+                        <Button variant="contained"
+                        onClick={goToBackHome}
+                        >Voltar</Button>
+                        <Button variant="contained"
+                        onClick={goToCreate}
+                        >Criar Viagem</Button>
                         <Button variant="contained">Logout</Button>
                     </Stack>
                 </Button>

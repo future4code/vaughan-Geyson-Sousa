@@ -16,7 +16,7 @@ display: flex;
 
 `
 
-function TripDetailsPage() {
+export default function TripDetailsPage() {
     return (
         <div>
             <div>
@@ -69,4 +69,3 @@ function TripDetailsPage() {
         </div>
     ) 
 }
-export default TripDetailsPage;

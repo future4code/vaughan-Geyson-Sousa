@@ -2,7 +2,7 @@ import React from "react";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import styled from 'styled-components'
-
+import { useNavigate } from "react-router-dom";
 
 const Buttons = styled.div`
 display: flex;
@@ -18,13 +18,16 @@ margin-top: 5rem;
 text-align: center;
 
 `
+ export default function HomePage() {
+ 
+const history = useNavigate() 
 
-
-
-
-function HomePage(props) {
-
-
+const  goToList =()=>{
+ history('/trips/list')
+}
+const  goToLogin =()=>{
+ history('/login')
+}
     return (
         <div>
           <Text>
@@ -32,8 +35,12 @@ function HomePage(props) {
             </Text>
             <Buttons>
                 <Stack spacing={45} direction="row" >
-                    <Button variant="contained">Ver viajens</Button>
-                    <Button variant="contained">Área de Admin</Button>
+                    <Button variant="contained"
+                    onClick={goToList}
+                    >Ver viajens</Button>
+                    <Button variant="contained"
+                    onClick={goToLogin}
+                    >Área de Admin</Button>
                 </Stack>
             </Buttons>
           
@@ -42,4 +49,3 @@ function HomePage(props) {
 
     )
 }
-export default HomePage;

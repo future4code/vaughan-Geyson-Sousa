@@ -4,13 +4,24 @@ import TextField from '@mui/material/TextField';
 import React from "react";
 import styled from 'styled-components';
 import Selects from '../ApplicationFormPage/Selects'
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Inputs = styled.div`
 display: flex;
 flex-direction: column;
 `
 
-function ApplicationFormPage() {
+export default function ApplicationFormPage() {
+
+    const  history = useNavigate()
+
+  const goToBackTrip=()=>{
+    history('/trips/list')
+  }
+
+    
     return (
         <div>
             <div>
@@ -52,9 +63,17 @@ function ApplicationFormPage() {
                             rows={4}         
                          />
                     </Inputs>
+                    
+                <Stack spacing={45} direction="row" >
+                    <Button variant="contained"
+                    onClick={goToBackTrip}
+                    >Voltar</Button>
+                    <Button variant="contained">Escreve-se</Button>
+                </Stack>
+            
                 </Box>
             </div>
         </div>
     ) 
 }
-export default ApplicationFormPage;
+ 

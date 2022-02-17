@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom';
 
 const Login = styled.div`
 display: flex;
@@ -24,7 +25,15 @@ flex-direction: column;
 align-items: center;
 gap:2rem
 `
-function LoginPage() {
+export default function LoginPage() {
+    const history = useNavigate()
+
+    const goToBackHome=()=>{
+    history('/')
+  }
+  const goToAdminHome=()=>{
+      history('/admin/trips/list')
+  }
     return (
         <div>
             <TextLogin>
@@ -57,10 +66,14 @@ function LoginPage() {
             </div>
             <Login>
                 <Stack spacing={45} direction="row" >
-                    <Button variant="contained"> Login</Button>
+                    <Button variant="contained"
+                    onClick={goToAdminHome}
+                    > Login</Button>
+                    <Button variant="contained"
+                    onClick={goToBackHome}
+                    > Voltar</Button>
                 </Stack>
             </Login>
         </div>
     )
 }
-export default LoginPage;

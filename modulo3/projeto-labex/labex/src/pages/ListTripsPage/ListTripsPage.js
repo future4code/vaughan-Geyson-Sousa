@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import styled from "styled-components";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
+import { useNavigate } from "react-router-dom";
 
 const Cards =styled(CardContent)`
 display: flex;
@@ -20,7 +20,19 @@ text-align: center;
 font-family:Times New Roman;
 
 `
-function ListTripPage (){
+export default function ListTripPage (){
+  
+  const  history = useNavigate()
+
+  const goToBackHome=()=>{
+    history('/')
+  }
+  
+
+  const  goToForm =()=>{
+    history('/trips/application')
+   }
+
     const bull = (
         <Box
           component="span"
@@ -62,13 +74,17 @@ function ListTripPage (){
         </Box>
         </div>
         <div>
-        <Button>
+            <Button>
                 <Stack spacing={45} direction="row" >
-                    <Button variant="contained">Escrever-se</Button>
+                    <Button variant="contained"
+                    onClick={goToForm}
+                    >Escrever-se</Button>
+                    <Button variant="contained"
+                    onClick={goToBackHome}
+                    >Voltar</Button>
                 </Stack>
             </Button>
         </div>
      </div>
    )
 }
-export default ListTripPage;
