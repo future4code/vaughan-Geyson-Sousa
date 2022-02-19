@@ -1,6 +1,4 @@
 import React from "react";
-// import Stack from '@mui/material/Stack';
-// import Button from '@mui/material/Button';
 import HomePage from "./pages/HomePage/HomePage";
 import CreateTripPage from "./pages/CreateTripPage/CreateTripPage";
 import ListTripPage from "./pages/ListTripsPage/ListTripsPage";
@@ -32,13 +30,13 @@ function App() {
             path={"/admin/trips/list"}
             element={<AdminHomePage />} />
         <Route
-            path={"/admin/trips/:id"}
+           exact path={"/admin/trips/:id"}
             element={<TripDetailsPage />} />
         <Route
             path={"/admin/trips/create"}
             element={<CreateTripPage />} />
     </Routes>
-</BrowserRouter>
+    </BrowserRouter>
 );
 }
 

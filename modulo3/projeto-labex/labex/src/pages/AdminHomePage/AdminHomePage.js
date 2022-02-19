@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import styled from "styled-components";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import UseRequestData from "../../Hooks/useRequestData";
 
-const CardAdmin =styled(CardContent)`
+const CardAdmin = styled(CardContent)`
 display: flex;
 flex-direction: column;
 gap: 1rem;
@@ -17,17 +17,21 @@ color:yellow;
 `
 
 export default function AdminHomePage() {
-    const  history = useNavigate()
-    const  goToAdmin =()=>{
-      history('/admin/trips/list')
-     }
-     const goToBackHome=()=>{
+    const[listTrip]=UseRequestData(`/trips`,{})
+    const history = useNavigate()
+    const goToAdmin = () => {
+        history('/admin/trips/list')
+    }
+    const goToBackHome = () => {
         history('/')
-      }
-const goToCreate =()=>{
-    history('/admin/trips/create')
-}
-
+    }
+    const goToCreate = () => {
+        history('/admin/trips/create')
+    }
+    const clickTrips =(id)=> {
+        history(`/admin/trips/${id}`)
+    }
+    
     const bull = (
         <Box
             component="span"
@@ -35,34 +39,32 @@ const goToCreate =()=>{
         >
         </Box>
     );
-    const card = (
-        <React.Fragment>
-            <CardAdmin>
-
-                <Typography variant="body1">
-                    Marte:
-                </Typography>
-            </CardAdmin>
-        </React.Fragment>
-    );
+  
+    const tripAdmin = listTrip.trips && listTrip.trips.map((trip)=>{
+        return(
+            <div onClick={()=>clickTrips(trip.id)}>
+                {trip.name}
+            </div>
+        )
+    })
     return (
         <div>
             <div>
                 <h2>Painel Administrativo</h2>
             </div>
+
             <div>
-                <Box sx={{ minWidth: 775 }}>
-                    <Card variant="elevation">{card}</Card>
-                </Box>
+            {tripAdmin}
             </div>
+           
             <div>
                 <Button>
                     <Stack spacing={5} direction="row" >
                         <Button variant="contained"
-                        onClick={goToBackHome}
+                            onClick={goToBackHome}
                         >Voltar</Button>
                         <Button variant="contained"
-                        onClick={goToCreate}
+                            onClick={goToCreate}
                         >Criar Viagem</Button>
                         <Button variant="contained">Logout</Button>
                     </Stack>

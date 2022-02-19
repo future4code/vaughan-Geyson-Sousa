@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { MultiSelectUnstyled } from '@mui/base';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -7,6 +7,8 @@ import Selects from '../ApplicationFormPage/Selects'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
+import { planet } from "../../Constants/Planets";
+
 const Inputs = styled.div`
 display: flex;
 flex-direction: column;
@@ -17,7 +19,15 @@ export default function CreateTripPage() {
     const goToBackHome =()=>{
      history('/admin/trips/list')
     }
+    const [control, setControl]=useState('')
+
+    const handleSelect =(ev)=>{
+      setControl(ev.target.value)
+    }
+
+
     return (
+        
         <Box
             component="form"
             sx={{
@@ -29,26 +39,25 @@ export default function CreateTripPage() {
             <div>
                 <h2> Criar Viagem</h2>
             </div>
-            <Selects />
+            <div>
+            <input type="date"></input>
+             </div>
             <Inputs>
-                <TextField
-                    id="outlined-multiline-flexible"
-                    label="E-mail"
-                    multiline
-                    maxRows={4}
-                />
                 <TextField
                     id="outlined-multiline-flexible"
                     label="Nome"
                     multiline
                     maxRows={4}
                 />
-                <TextField
-                    id="outlined-multiline-flexible"
-                    label="Profissão"
-                    multiline
-                    maxRows={4}
-                />
+               <select
+               onChange={handleSelect}
+               value={control}
+               >
+                   <option disabled selected>escolha um planeta ...</option>
+                   {planet.map((planets)=>{
+                       return <option key={planets} value={planets}>{planets}</option>
+                   })}
+               </select>
                 <TextField
                     id="outlined-multiline-static"
                     label="Descrição"
@@ -65,6 +74,9 @@ export default function CreateTripPage() {
             </Stack>
 
         </Box>
+        
+        
+        
 
     )
 }

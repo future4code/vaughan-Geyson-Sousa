@@ -1,71 +1,36 @@
-import { MultiSelectUnstyled } from '@mui/base';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import React from "react";
+
+import React, { useEffect } from "react";
 import styled from 'styled-components';
-import Selects from '../ApplicationFormPage/Selects'
-import Button from '@mui/material/Button';
+import axios from 'axios';
+import UseRequestData from '../../Hooks/useRequestData';
+import { useParams } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
-const InputsTrip = styled.div`
-display: flex;
-flex-direction: column;
-`
-const ButtonDetail = styled.div`
-display: flex;
-
-`
 
 export default function TripDetailsPage() {
+    const params = useParams()
+    const [listTrip] = UseRequestData(`/trip/${params.id}`)
+    const  history = useNavigate()
+    const goToBackPage=()=>{
+        history('/admin/trips/list')
+      }
+
+
     return (
         <div>
-            <div>
-                <h2>Criar viagem</h2>
-            </div>
-            <div>
-                <Box
-                    component="form"
-                    sx={{
-                        '& .MuiTextField-root': { m: 1, width: '60ch' },
-                    }}
-                    noValidate
-                    autoComplete="off"
-                >  
-                    <Selects/>
-                    <InputsTrip>
-                        <TextField
-                          id="outlined-multiline-flexible"
-                          label="Nome"
-                          multiline
-                          maxRows={4}
-                        />
-                         <TextField
-                           id="outlined-multiline-flexible"
-                           label="Idade"
-                           multiline
-                           maxRows={4}
-                        />
-                         <TextField
-                           id="outlined-multiline-flexible"
-                           label="Profissão"
-                           multiline
-                           maxRows={4}           
-                         />
-                            <TextField
-                            id="outlined-multiline-static"
-                            label="Descrição"
-                            multiline
-                            rows={4}         
-                         />
-                    </InputsTrip>
-                    <ButtonDetail>
-                    <Stack spacing={50} direction="row" >
-                        <Button variant="contained">Voltar</Button>
-                        <Button variant="contained">Criar</Button>
-                    </Stack>
-                </ButtonDetail>
-                </Box>
-            </div>
+            <h2>Pagina de Detalhes</h2>
+            {listTrip && listTrip.trip && <h2>{listTrip.trip.name}</h2>}
+            {listTrip && listTrip.trip && <h2>{listTrip.trip.description}</h2>}
+            {listTrip && listTrip.trip && <h2>{listTrip.trip.planet}</h2>}
+            {listTrip && listTrip.trip && <h2>{listTrip.trip.durationInDate}</h2>}
+            {listTrip && listTrip.trip && <h2>{listTrip.trip.date}</h2>}
+
+            <h2> candidatos Aprovados</h2>
+             <button onClick={goToBackPage}>Voltar</button>
+             <button>nao sei</button>
+             <button>nao sei </button>
         </div>
-    ) 
+    )
 }
