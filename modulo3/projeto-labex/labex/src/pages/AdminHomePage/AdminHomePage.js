@@ -8,12 +8,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UseRequestData from "../../Hooks/useRequestData";
 
-const CardAdmin = styled(CardContent)`
-display: flex;
-flex-direction: column;
-gap: 1rem;
-background-color: #514442;
-color:yellow;
+const CardAdmin = styled.div`
+ border-style:solid;
+ border-color: blue;
+ margin-bottom:4rem;
 `
 
 export default function AdminHomePage() {
@@ -53,9 +51,9 @@ export default function AdminHomePage() {
                 <h2>Painel Administrativo</h2>
             </div>
 
-            <div>
+            <CardAdmin >
             {tripAdmin}
-            </div>
+            </CardAdmin>
            
             <div>
                 <Button>

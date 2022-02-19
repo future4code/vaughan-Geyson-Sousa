@@ -1,9 +1,7 @@
 import React, { useState } from "react"
-import { MultiSelectUnstyled } from '@mui/base';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
-import Selects from '../ApplicationFormPage/Selects'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
@@ -12,6 +10,7 @@ import { planet } from "../../Constants/Planets";
 const Inputs = styled.div`
 display: flex;
 flex-direction: column;
+
 `
 
 export default function CreateTripPage() {
@@ -24,7 +23,6 @@ export default function CreateTripPage() {
     const handleSelect =(ev)=>{
       setControl(ev.target.value)
     }
-
 
     return (
         
@@ -57,6 +55,7 @@ export default function CreateTripPage() {
                    {planet.map((planets)=>{
                        return <option key={planets} value={planets}>{planets}</option>
                    })}
+                   
                </select>
                 <TextField
                     id="outlined-multiline-static"
@@ -72,11 +71,6 @@ export default function CreateTripPage() {
                 >Voltar</Button>
                 <Button variant="contained">Escreve-se</Button>
             </Stack>
-
         </Box>
-        
-        
-        
-
     )
 }

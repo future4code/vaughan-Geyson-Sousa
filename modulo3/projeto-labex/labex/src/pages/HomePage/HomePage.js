@@ -18,32 +18,32 @@ margin-top: 5rem;
 text-align: center;
 
 `
- export default function HomePage() {
- 
-const history = useNavigate() 
+export default function HomePage() {
 
-const  goToList =()=>{
- history('/trips/list')
-}
-const  goToLogin =()=>{
- history('/login')
-}
+    const history = useNavigate()
+
+    const goToList = () => {
+        history('/trips/list')
+    }
+    const goToLogin = () => {
+        history('/login')
+    }
     return (
         <div>
-          <Text>
-            <h2>Labex</h2>
+            <Text>
+                <h2>Labex</h2>
             </Text>
             <Buttons>
                 <Stack spacing={45} direction="row" >
                     <Button variant="contained"
-                    onClick={goToList}
+                        onClick={goToList}
                     >Ver viajens</Button>
                     <Button variant="contained"
-                    onClick={goToLogin}
+                        onClick={goToLogin}
                     >Área de Admin</Button>
                 </Stack>
             </Buttons>
-          
+
         </div>
 
 
