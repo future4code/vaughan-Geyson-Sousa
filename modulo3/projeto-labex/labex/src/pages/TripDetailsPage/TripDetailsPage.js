@@ -29,8 +29,7 @@ export default function TripDetailsPage() {
 
             <h2> candidatos Aprovados</h2>
              <button onClick={goToBackPage}>Voltar</button>
-             <button>nao sei</button>
-             <button>nao sei </button>
+             
         </div>
     )
 }
