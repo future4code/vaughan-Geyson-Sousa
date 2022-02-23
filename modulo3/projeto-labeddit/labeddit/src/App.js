@@ -1,15 +1,17 @@
 import { ThemeProvider } from '@mui/material';
 import React from 'react';
-import { Temas } from './constants/Temas'
+import { Temas } from './constants/Temas';
 import Routes from './routes/Router';
-import Headers from './components/Header/Headers';
+import StyleGlobal from './Style';
 
 function App() {
   return (
+
     <ThemeProvider theme={Temas}>
-      <Routes />
       
+      <Routes />    
     </ThemeProvider>
+
   );
 }
 

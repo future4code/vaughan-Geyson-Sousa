@@ -1,11 +1,11 @@
 
 
 export const irParaFeed= (navigate)=>{
-    navigate("/")
+    navigate("/Feed")
 }
 
 export const irParaLogin= (navigate)=>{
-    navigate("/login")
+    navigate("/")
 }
 
 export const irParaPost =(navigate)=>{

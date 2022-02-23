@@ -14,8 +14,8 @@ function Router (){
        <BrowserRouter>
        <Headers />
        <Routes>
-           <Route path ={"/"} element= {<Feed/>}/>
-           <Route path ={"/login"} element= {<Login/>}/>
+           <Route path ={"/Feed"} element= {<Feed/>}/>
+           <Route path ={"/"} element= {<Login/>}/>
            <Route path ={"/cadastro"} element= {<Cadastro/>}/>
            <Route path ={"/post:id"} element= {<Post/>}/>
            <Route path ={"*"} element= {<Erro/>}/>
