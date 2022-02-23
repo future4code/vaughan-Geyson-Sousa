@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material'
 import { corPrimaria, corSecundaria, corNeutra } from './Cores';
 
-export const Temas = createTheme({
+ export const Temas = createTheme({
     palette: {
         primary: {
             main: corPrimaria,
