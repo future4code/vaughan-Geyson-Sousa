@@ -20,10 +20,10 @@ function Login() {
   }
   const login =()=>{
     const body ={
-      email: form.email,
+      email: form.email,                                          
       password: form.password,
     }
-    axios.post(`${BASE_URL}/users/login`, body, form )
+    axios.post(`${BASE_URL}/users/login`, body )
     .then((res)=>console.log(res))
     .catch((err)=>console.log(err))
   }
