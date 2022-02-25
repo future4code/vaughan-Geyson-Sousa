@@ -1,7 +1,7 @@
 
 
 export const irParaFeed= (navigate)=>{
-    navigate("/Feed")
+    navigate("/feed")
 }
 
 export const irParaLogin= (navigate)=>{
