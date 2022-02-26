@@ -1,15 +1,21 @@
 import { ThemeProvider } from '@mui/material';
-import React from 'react';
+import React, {useState} from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Temas } from './constants/Temas';
-import Routes from './routes/Router';
-import StyleGlobal from './Style';
+import Router from './routes/Router';
+import Headers from './components/Header/Headers';
 
 function App() {
+  const token = localStorage.getItem("token")
+  const [textoCerto, setTextoCerto] = useState (token ? "logout" : "login")
+
   return (
 
     <ThemeProvider theme={Temas}>
-      
-      <Routes />    
+      <BrowserRouter>
+      <Headers textoCerto={textoCerto} setTextoCerto={setTextoCerto}/> 
+      <Router setTextoCerto={setTextoCerto} />    
+      </BrowserRouter>
     </ThemeProvider>
 
   );

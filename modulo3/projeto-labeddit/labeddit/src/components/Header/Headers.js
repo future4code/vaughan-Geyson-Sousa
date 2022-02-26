@@ -4,20 +4,33 @@ import Logo from '../../assets/Logo.png'
 import { Img, StyledToobar } from './style'
 import { useNavigate } from "react-router-dom"
 import { irParaFeed, irParaLogin } from '../../routes/Cordenadas';
-import { useState } from 'react';
 
 
-function Headers() {
+
+function Headers ({textoCerto, setTextoCerto}){
+  
   const token = localStorage.getItem("token")
-  const [textoCerto, setTextoCerto] = useState (token ? "logout" : "login")
   const navigate = useNavigate()
 
+  const deslogar =() =>{
+    localStorage.removeItem("token")
+  }
+
+  const mudarAcaoButao=()=>{
+    if(token){
+      deslogar()
+      setTextoCerto("login")
+      irParaLogin(navigate)
+    }else{
+      irParaLogin(navigate)
+    }
+  }
   return (
       
       <AppBar position="static">
         <StyledToobar>
           <Button onClick={() => irParaFeed(navigate)}> <Img src={Logo} alt="Logomarca" /></Button>
-          <Button color="inherit" onClick={() => irParaLogin(navigate)}
+          <Button color="inherit" onClick={mudarAcaoButao}
           >{textoCerto}</Button>
         </StyledToobar>
       </AppBar>

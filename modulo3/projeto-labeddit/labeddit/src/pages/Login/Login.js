@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, DivTela, DivInputs, divBotao, DivFormulario } from './style'
+import { Logo, DivTela, DivInputs, DivFormulario } from './style'
 import LogoRobo from '../../assets/robo3.png'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField'
@@ -10,14 +10,14 @@ import { login } from '../../services/Requests'
 import useUnProtectedPage from '../../hooks/useUnprotectPage';
 
 
-function Login() {
+function Login({ setTextoCerto}) {
   const navigate = useNavigate()
   const [form, onChange, clear] = useForm({ email: "", password: "" })
   useUnProtectedPage()
 
   const onSubmit = (ev) => {
     ev.preventDefault()
-    login(form, clear, navigate)
+    login(form, clear, navigate, setTextoCerto)
 
   }
 
@@ -28,7 +28,7 @@ function Login() {
       <Logo src={LogoRobo} alt="background imagem" />
       <DivInputs>
 
-        <DivFormulario onSubmit={onSubmit}>
+        <DivFormulario onSubmit={onSubmit}  setTextoCerto={setTextoCerto}>
 
           <TextField
             name={"email"}

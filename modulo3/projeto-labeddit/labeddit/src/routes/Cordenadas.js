@@ -8,7 +8,7 @@ export const irParaLogin= (navigate)=>{
     navigate("/")
 }
 
-export const irParaPost =(navigate)=>{
+export const irParaPost =(navigate,id)=>{
     navigate(`/post/${id}`)
 }
 

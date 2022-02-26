@@ -1,15 +1,19 @@
-import React from 'react';
-import useProtectedPage from '../../hooks/useProtectPage'
+import React from 'react'
+import FormFeed from './FormFeed'
+import CardFeed from './CardFeed'
+import useProtectedPage from  '../../hooks/useProtectPage'
 
 function Feed() {
 useProtectedPage()
-  return (
-    
-      <div>
-        <h1>FEED</h1>
-      </div>
-    
-  )
-}
+  
+  
 
-export default Feed; 
+  return (
+    <div>
+      <FormFeed/>
+      <CardFeed/>
+    </div>
+  );
+
+}
+export default Feed;

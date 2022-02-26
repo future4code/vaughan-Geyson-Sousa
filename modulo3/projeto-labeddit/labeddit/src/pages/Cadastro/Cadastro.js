@@ -9,14 +9,14 @@ import { Cadastrar } from '../../services/Requests';
 import useUnProtectedPage from '../../hooks/useUnprotectPage';
 
 
-function Cadastro() {
+function Cadastro({ setTextoCerto}) {
   const navigate = useNavigate()
   const [form, onChange, clear] = useForm({ username: "", email: "", password: "" })
     useUnProtectedPage()
 
   const onSubmit = (ev) => {
     ev.preventDefault()
-    Cadastrar(form, clear, navigate)
+    Cadastrar(form, clear, navigate, setTextoCerto)
   }
 
   return (
@@ -26,7 +26,7 @@ function Cadastro() {
       <Logo src={LogoRobo} alt="background imagem" />
       <DivInputs>
 
-        <DivFormulario onSubmit={onSubmit}>
+        <DivFormulario onSubmit={onSubmit} setTextoCerto={setTextoCerto}>
 
           <TextField
             name={"username"}
