@@ -3,8 +3,6 @@ import axios from 'axios'
 
 export const login = (body, clear, navigate, setTextoCerto) => {
  
-
-
     axios.post(`${BASE_URL}/users/login`, body)
       .then((res) => {
         localStorage.setItem('token', res.data.token)
@@ -49,18 +47,36 @@ export const criarPost =(body, clear)=>{
   })
 };
 
-// export const votacao =(body)=>{
-//   axios.post (`${BASE_URL}/posts/:id/votes`,body, {
-//     headers: {
-//       Authorization:localStorage.getItem('token')
-//     }
-//   })
-//   .then((res)=>{
-//     alert('voce deu like')
-//     getData()
+export const votacao =(id,direction,obterPostagem)=>{
 
-//   }).catch((err)=>{
-//     alert("Nao deu certo")
-//   })
+  axios.post (`${BASE_URL}/posts/${id}/votes`,{direction:direction}, {
+    headers: {
+      Authorization:localStorage.getItem('token')
+    }
+  })
+  .then((res)=>{
+    
+    if(direction=== 1)
+    alert("Voto positivo")
+    else{alert("Voto negativo")}
+    obterPostagem()
 
-// }
+  }).catch((err)=>{
+    alert(`Nao deu certo ${err.data.message}`)
+  })
+}
+
+export const deletar =(id,obterPostagem)=>{
+
+   axios.delete (`${BASE_URL}/posts/${id}/votes`,{
+    headers: {
+      Authorization:localStorage.getItem('token')
+    }})
+    .then((res)=>{
+      alert("Voto deletado")
+      obterPostagem()
+    })
+    .catch((err)=>{
+      alert("deu erro")
+    })
+}
