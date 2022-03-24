@@ -1,4 +1,4 @@
-//a) A entrada é um array de números e a saída um objeto com o maior númbero, menor e a média de todos os números.
+//a) A entrada é um array de números e a saída um objeto com o maior numero, menor e a média de todos os números.
 // function obterEstatisticas(numeros: number[]): { maior: number, menor: number, media: number } {
 
 //         const numerosOrdenados = numeros.sort(
