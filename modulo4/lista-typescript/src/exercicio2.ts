@@ -1,3 +1,4 @@
+
 const entrada=(geyson:string)=>{
 console.log(typeof geyson)
 }
