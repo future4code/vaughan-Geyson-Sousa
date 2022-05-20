@@ -1,28 +1,25 @@
-// import React from 'react'
-// import Home from '../Pages/Home/Home'
-// import PaginaDetalhes from '../Pages/PaginaDetalhes/PaginaDetalhes'
-// import PaginaPokedex from '../Pages/PaginaPokedex/PaginaPokedex'
-// import PaginaErro from '../Pages/PaginaErro/PaginaErro'
-// import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import React from 'react'
+import Home from '../pages/paginaHome/Home'
+import DetalhesPagina from '../pages/paginaDeDetalhe/DetalhesPagina'
+import Error from '../pages/erro/Erro'
+import {Route, Routes, BrowserRouter } from 'react-router-dom'
 
 
-// function Router() {
+function Router() {
 
-//     return (
-//         <BrowserRouter>
-//             <Routes>
+    return (
+        <BrowserRouter>
+            <Routes>
 
-//                 <Route path={"/"} element={< />} />
+                <Route path={"/"} element={<paginaHome/>}/>
 
-//                 <Route path={"/detalhes/:id"} element={</>} />
+                <Route path={"/detalhes/:id"} element={<paginaDeDetalhe/>}/>
 
-//                 <Route path={"/pokedex"} element={</>} />
+                <Route path={"*"} element={<erro/>}/>
 
-//                 <Route path={"*"} element={< />} />
+            </Routes>
+        </BrowserRouter>
+    )
+}
 
-//             </Routes>
-//         </BrowserRouter>
-//     )
-// }
-
-// export default Router;
+export default Router; 
