@@ -2,14 +2,12 @@ import React from 'react';
 import UseRequestData from '../../hooks/UseRequestData';
 import { BASE_URL, IMG_URL } from '../../constants/URLs';
 import { API_KEY } from '../../constants/KeyAPI';
+import {VIDEO_URL} from '../../constants/URLs'
 import { useParams } from 'react-router-dom';
-import {
-    Img, SubHeader, Elencos, Cards, Container,
-    TextoElen, FilmesOutros, CardRecomen, TextoRecomend, ContainerInfo, Info, Avaliacao, Sinopse,DivElenco
+import {Img, SubHeader, Elencos, Cards, Container,TextoElen, FilmesOutros, CardRecomen, TextoRecomend, ContainerInfo, Info, Avaliacao, Sinopse,DivElenco
 } from './Styled'
 import Creditos from '../../components/creditos/Creditos'
 import Header from '../../components/header/Header';
-
 
 const PaginaDetalhe = () => {
     const params = useParams()
@@ -17,15 +15,29 @@ const PaginaDetalhe = () => {
     const [infoFilme] = UseRequestData([], `${BASE_URL}/movie/${params.id}?${API_KEY}&language=pt-BR`)
     const [creditos] = UseRequestData([], `${BASE_URL}/movie/${params.id}/credits?${API_KEY}&language=pt-BR`)
     const [recomendacao] = UseRequestData([], `${BASE_URL}/movie/${params.id}/recommendations?${API_KEY}&language=pt-BR`)
-
+    const [video]= UseRequestData([],`${BASE_URL}/movie/${params.id}/videos?${API_KEY}&language=pt-BR`)
+    
     let all = infoFilme.runtime;
     let minutes = all % 60;
     let hours = (all - minutes) / 60
-
+    
     const filtroDetalhes = detalhes.results && detalhes.results.filter((film) => {
         return film.iso_3166_1 === "BR"
     })
 
+     const trailler= video?.results && video?.results.map((vi)=>{
+         
+      return (
+          <div>
+          <video controls>
+              <source src ="VIDEO_URL + vi.key" type="video/ogg"/>
+              </video>
+          </div> 
+          
+      )
+      
+    })
+    console.log(trailler) 
     const generos = infoFilme?.genres && infoFilme?.genres.map((gen) => {
         return (
             <div>
@@ -101,7 +113,11 @@ const PaginaDetalhe = () => {
                 </DivElenco>
 
             </div>
-
+            <div>
+                {trailler?.slice(0,1)}
+                
+            </div> 
+            
             <TextoRecomend>
                 <p>Recomendação</p>
             </TextoRecomend>
@@ -109,6 +125,8 @@ const PaginaDetalhe = () => {
                 {Recomendar?.slice(0, 6)}
             </CardRecomen>
         </div>
+        
     )
+
 }
 export default PaginaDetalhe;
