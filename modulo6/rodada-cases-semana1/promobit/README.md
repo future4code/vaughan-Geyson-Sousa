@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+<div id= "top" align="center">
+<img src="https://i.imgur.com/6q2AiRg.png" width="300"/> 
+<img src="https://user-images.githubusercontent.com/94838711/169862569-5aaed0cd-69a5-40d1-8d6b-b6e15080e62a.png" width="100"/> 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://user-images.githubusercontent.com/94838711/169861898-3101fdf5-4c96-4c3c-9354-7f8c775a1802.png" width="150"/> 
+<h1>Case Promobit - The Movie DB</h1>
+</div>
 
-## Available Scripts
+<p align="center">
+  <a href="#sobre">Sobre</a> &#xa0; | &#xa0; 
+  <a href="#funciona">O que funciona</a> &#xa0; | &#xa0;
+  <a href="#pendente">Em desenvolvimento</a> &#xa0; | &#xa0;
+  <a href="#desenvolvedores">Desenvolvido Por</a> 
+</p>
 
-In the project directory, you can run:
+<h2 id="sobre">:notebook: Sobre </h2>
 
-### `npm start`
+<p align="center"> Projeto desenvolvido baseado em React JS, para o desenvolvimento de um web site inspirado na plataforma The Movie DB. O site consiste em ver uma listagem dos filmes mais populares do dia juntamente com seus detalhes, elenco, trailer e recomendações. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2 id="link">:link: Link Surge - link para visualização do site</h2>
+ <a href="https://labored-lawyer.surge.sh/">The Movie DB</a>
 
-### `npm test`
+<h2 id="tecnologias"> 🛠 Tecnologias </h2>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ferramentas usadas na construção do projeto:
 
-### `npm run build`
+* React JS
+* Styled-components
+* Material UI Design System
+* Customs e React Hooks
+* React Router DOM
+* Integração com API
+* Axios
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2 id="funciona">:heavy_check_mark: O que funciona</h2>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*  O usuário tem acesso a uma listagem dos filmes mais populares do dia;
+*   O usuário consegue paginar a lista para encontrar novos filmes;
+*  Ao clicar em um item dessa listagem, outra página com os detalhes do filme escolhido é exibida;
+*  A página com detalhes do filme possui uma rota própria e pode ser indexada em mecanismos de pesquisa.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2 id="pendente">:construction: Em desenvolvimento</h2>
 
-### `npm run eject`
+- [ ] Responsividade;
+- [ ] Filtragem por gênero de filmes;
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<h2 id="desenvolvedores">:construction_worker: Desenvolvido por:</h2>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<table> 
+<tr>
 
-## Learn More
+ <td align="center"><a href="https://github.com/future4code/vaughan-Geyson-Sousa"><img style="border-radius: 50%" src="C:\Users\geyso\Vaughan-geyson-sousa\modulo6\rodada-cases-semana1\promobit\src\assets\1649802192293.jpg" width="100px" alt=""/>
+ <br />
+ <sub><b>Geyson</b></sub></a> <a href="https://github.com/future4code/vaughan-Geyson-Sousa"></a></td>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+</tr>
+</table>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="#top">Voltar para o topo 🔝</a>

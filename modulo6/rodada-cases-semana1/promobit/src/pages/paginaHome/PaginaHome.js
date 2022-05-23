@@ -11,6 +11,7 @@ import Pagination from '@mui/material/Pagination'
 const Home = () => {
   
   const Navigate = useNavigate()
+  
   const [paginacao, setPaginacao] = useState(1)
   const [filmes] = UseRequestData([], `${BASE_URL}/movie/popular?${API_KEY}&language=pt-BR&page=${paginacao}`)
  

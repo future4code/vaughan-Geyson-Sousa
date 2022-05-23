@@ -94,8 +94,8 @@ button{
     border: transparent;
     border-radius: 5px;
     background-color: #fff;
-    :active{
-        background-color:green;
+    :focus{
+        background-color:orange;
     }
 :hover{
     cursor: pointer;

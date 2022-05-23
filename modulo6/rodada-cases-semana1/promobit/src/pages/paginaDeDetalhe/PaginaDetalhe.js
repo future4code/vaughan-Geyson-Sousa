@@ -9,6 +9,7 @@ import {Img, SubHeader, Elencos, Cards, Container,TextoElen, FilmesOutros, CardR
 import Creditos from '../../components/creditos/Creditos'
 import Header from '../../components/header/Header';
 
+
 const PaginaDetalhe = () => {
     const params = useParams()
     const [detalhes] = UseRequestData([], `${BASE_URL}/movie/${params.id}/release_dates?${API_KEY}&language=pt-BR`);
@@ -89,8 +90,10 @@ const PaginaDetalhe = () => {
                         <p>{`${hours}h ${minutes}m`}</p>
                     </Info>
                     <Avaliacao>
-                        {porcentagem}%
-                        Avaliação dos usuários
+                        <div>
+                        <button>{porcentagem}%</button>
+                        </div>
+                        <p>Avaliação dos usuários</p>
                     </Avaliacao>
                     <Sinopse>
                         <h1>Sinopse</h1>

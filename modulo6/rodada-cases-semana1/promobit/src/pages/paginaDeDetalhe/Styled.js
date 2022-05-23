@@ -36,9 +36,25 @@ h1{
 }
 `
 export const Avaliacao = styled.div`
-    font-size: 13px;
+     font-size: 13px;
     font-weight:200;
-    width: 10%;
+    display: flex;
+    button{
+        background-color: rgba(255, 255, 255, 0.1);
+        width:60px;
+        height:60px;
+        border-radius: 400px;
+        border: 7px solid #14FF00;
+        color: #14FF00;
+    }
+   
+div{
+    width: 28%;
+}
+p{
+    width: 18%;
+    margin-left: -17%;
+}
 `
 export const Sinopse = styled.div`
     display:flex;
@@ -46,11 +62,11 @@ export const Sinopse = styled.div`
     width: 660px;
     margin-top: 30px;
 h1{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
 }
 p{
-    font-size:14px;
+    font-size:12px;
     font-weight:200;
 }
 `
