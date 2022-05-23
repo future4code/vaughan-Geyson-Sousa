@@ -165,6 +165,21 @@ export const TextoRecomend = styled.div`
  align-items: center;
  justify-content: center;
  font-size:25px;
- font-family: 'Roboto', sans-serif;
  }
  `
+export const TrailerDiv = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+margin-bottom: 10rem;
+iframe{
+    width: 55vw;
+    height: 75vh;
+}
+h5{
+    font-size:25px
+}
+`
+

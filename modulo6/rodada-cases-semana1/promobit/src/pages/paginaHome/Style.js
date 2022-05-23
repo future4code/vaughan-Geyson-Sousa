@@ -77,13 +77,6 @@ h1{
     text-align: center;
 }
 `
-export const Texto2 = styled.p`
- margin:0;
- color:white;
- position: relative; top: 80px; left: 630px;
- font-family: 'Roboto', sans-serif;
- width:470px;
-`
 export const Button= styled.div`
     display: flex;
     gap: 10px;
@@ -108,4 +101,10 @@ button{
     cursor: pointer;
 }
 }
+`
+export const Paginacao =styled.div`
+display: flex;
+justify-content: center;
+width: 100%;
+padding-bottom: 10px;
 `

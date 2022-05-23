@@ -5,7 +5,7 @@ import { API_KEY } from '../../constants/KeyAPI';
 import {VIDEO_URL} from '../../constants/URLs'
 import { useParams } from 'react-router-dom';
 import {Img, SubHeader, Elencos, Cards, Container,TextoElen, FilmesOutros, CardRecomen, TextoRecomend, ContainerInfo, Info, Avaliacao, Sinopse,DivElenco
-} from './Styled'
+,TrailerDiv} from './Styled'
 import Creditos from '../../components/creditos/Creditos'
 import Header from '../../components/header/Header';
 
@@ -20,6 +20,11 @@ const PaginaDetalhe = () => {
     let all = infoFilme.runtime;
     let minutes = all % 60;
     let hours = (all - minutes) / 60
+
+    let number = infoFilme.vote_average
+    let porcentagem = number / 10 * 100
+    
+    const anoDoFilme = infoFilme.release_date?.split('-')
     
     const filtroDetalhes = detalhes.results && detalhes.results.filter((film) => {
         return film.iso_3166_1 === "BR"
@@ -28,16 +33,17 @@ const PaginaDetalhe = () => {
      const trailler= video?.results && video?.results.map((vi)=>{
          
       return (
-          <div>
-          <video controls>
-              <source src ="VIDEO_URL + vi.key" type="video/ogg"/>
-              </video>
-          </div> 
-          
+          <TrailerDiv>
+        <h5>Trailer</h5>
+        <div>
+          <iframe
+            src={ VIDEO_URL+ video?.results?.[0]?.key}
+            title={VIDEO_URL + video?.results?.[0]?.key}></iframe>
+        </div>
+        </TrailerDiv>
       )
       
     })
-    console.log(trailler) 
     const generos = infoFilme?.genres && infoFilme?.genres.map((gen) => {
         return (
             <div>
@@ -49,7 +55,6 @@ const PaginaDetalhe = () => {
     const elencos = creditos?.cast && creditos?.cast.map((atuantes) => {
         return (
             <Elencos>
-
                 <Cards>
                     <img src={IMG_URL + atuantes.profile_path} />
                     <p>{atuantes.name}</p>
@@ -60,9 +65,7 @@ const PaginaDetalhe = () => {
     })
     const Recomendar = recomendacao?.results && recomendacao?.results.map((rec) => {
         return (
-
             <FilmesOutros>
-
                 <img src={IMG_URL + rec.poster_path} />
             </FilmesOutros>
         )
@@ -70,15 +73,12 @@ const PaginaDetalhe = () => {
     return (
         <div>
             <Header />
-
             <SubHeader>
                 <div>
                     <Img src={IMG_URL + infoFilme.poster_path} />
                 </div>
-
                 <ContainerInfo>
-                    <h1>{infoFilme?.title} (Ano do filme)</h1>
-
+                    <h1>{infoFilme?.title} ({anoDoFilme?.[0]})</h1>
                     <Info>
                         <p>{filtroDetalhes?.[0]?.release_dates?.[0].certification} anos</p>
                         <p>•</p>
@@ -88,36 +88,28 @@ const PaginaDetalhe = () => {
                         <p>•</p>
                         <p>{`${hours}h ${minutes}m`}</p>
                     </Info>
-
                     <Avaliacao>
-                        {infoFilme.vote_average}
+                        {porcentagem}%
                         Avaliação dos usuários
                     </Avaliacao>
-
                     <Sinopse>
                         <h1>Sinopse</h1>
                         <p>{infoFilme.overview}</p>
                     </Sinopse>
-
                     <Creditos />
                 </ContainerInfo>
             </SubHeader>
-
             <div>
                 <TextoElen>Elenco original</TextoElen>
-
                 <DivElenco>
                 <Container>
                     {elencos}
                 </Container>
                 </DivElenco>
-
             </div>
             <div>
                 {trailler?.slice(0,1)}
-                
             </div> 
-            
             <TextoRecomend>
                 <p>Recomendação</p>
             </TextoRecomend>
@@ -125,8 +117,6 @@ const PaginaDetalhe = () => {
                 {Recomendar?.slice(0, 6)}
             </CardRecomen>
         </div>
-        
     )
-
 }
 export default PaginaDetalhe;
